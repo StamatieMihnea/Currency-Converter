@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
+const hintText = 'enter the amount in EUR';
+const buttonText = 'CONVERT!';
+const convertRate = 4.93;
+const imageUrl = 'https://ekronomica.ro/wp-content/uploads/2018/10/bani.jpeg';
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  static const imageUrl =
-      'https://ekronomica.ro/wp-content/uploads/2018/10/bani.jpeg';
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +42,8 @@ class ConvertorForm extends StatefulWidget {
 }
 
 class _ConvertorFormState extends State<ConvertorForm> {
-  static const hintText = 'enter the amount in EUR';
-  static const buttonText = 'CONVERT!';
-  static const convertRate = 4.93;
   final TextEditingController fieldController = TextEditingController();
-  String? errorText = null;
+  String? errorText;
   String convertedValue = '';
 
   @override
@@ -65,7 +65,7 @@ class _ConvertorFormState extends State<ConvertorForm> {
         ),
         ElevatedButton(
           onPressed: () {
-            double? number = 0;
+            double? number;
             number = double.tryParse(fieldController.value.text);
             setState(() {
               if (number == null) {
