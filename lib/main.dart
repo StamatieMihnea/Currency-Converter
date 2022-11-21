@@ -55,7 +55,7 @@ class _ConvertorFormState extends State<ConvertorForm> {
           child: TextField(
             controller: fieldController,
             keyboardType: TextInputType.numberWithOptions(
-              signed: true,
+              decimal: true,
             ),
             decoration: InputDecoration(
               hintText: hintText,
