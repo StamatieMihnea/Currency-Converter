@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 const String hintText = 'enter the amount in EUR';
 const String buttonText = 'CONVERT!';
 const double convertRate = 4.93;
-const String imageUrl =
-    'https://ekronomica.ro/wp-content/uploads/2018/10/bani.jpeg';
+const String imageUrl = 'https://ekronomica.ro/wp-content/uploads/2018/10/bani.jpeg';
 
 void main() {
   runApp(const ConvertorApp());
@@ -74,8 +73,7 @@ class _ConvertorFormState extends State<ConvertorForm> {
                 convertedValue = '';
               } else {
                 errorText = null;
-                convertedValue =
-                    '${(number * convertRate).toStringAsFixed(2)} RON';
+                convertedValue = '${(number * convertRate).toStringAsFixed(2)} RON';
               }
             });
           },
