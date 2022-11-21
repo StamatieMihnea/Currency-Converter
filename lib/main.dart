@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
 
-const hintText = 'enter the amount in EUR';
-const buttonText = 'CONVERT!';
-const convertRate = 4.93;
-const imageUrl = 'https://ekronomica.ro/wp-content/uploads/2018/10/bani.jpeg';
+const String hintText = 'enter the amount in EUR';
+const String buttonText = 'CONVERT!';
+const double convertRate = 4.93;
+const String imageUrl =
+    'https://ekronomica.ro/wp-content/uploads/2018/10/bani.jpeg';
 
 void main() {
-  runApp(MyApp());
+  runApp(const ConvertorApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class ConvertorApp extends StatelessWidget {
+  const ConvertorApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Center(
-            child: const Text(
-              "Currency convertor",
+          title: const Center(
+            child: Text(
+              'Currency convertor',
             ),
           ),
         ),
         body: Wrap(
           children: <Widget>[
             Image.network(imageUrl),
-            ConvertorForm(),
+            const ConvertorForm(),
           ],
         ),
       ),
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
 }
 
 class ConvertorForm extends StatefulWidget {
-  const ConvertorForm({Key? key}) : super(key: key);
+  const ConvertorForm({super.key});
 
   @override
   State<ConvertorForm> createState() => _ConvertorFormState();
@@ -49,12 +50,12 @@ class _ConvertorFormState extends State<ConvertorForm> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextField(
             controller: fieldController,
-            keyboardType: TextInputType.numberWithOptions(
+            keyboardType: const TextInputType.numberWithOptions(
               decimal: true,
             ),
             decoration: InputDecoration(
@@ -78,12 +79,12 @@ class _ConvertorFormState extends State<ConvertorForm> {
               }
             });
           },
-          child: Text(buttonText),
+          child: const Text(buttonText),
         ),
-        if (convertedValue.length != 0)
+        if (convertedValue.isNotEmpty)
           Text(
             convertedValue,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 30,
             ),
           )
